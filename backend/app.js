@@ -8,6 +8,8 @@ const usernameDB = process.env.MONGO_DB_USER;
 const passwordDB = process.env.MONGO_DB_PASS;
 const nameDB = process.env.MONGO_DB_NAME;
 
+const userRoutes = require("./routes/user");
+
 // Connexion avec MongoDB Atlas (via mongoose)
 mongoose.connect(`mongodb+srv://${usernameDB}:${passwordDB}@cluster0.ola9w.mongodb.net/${nameDB}?retryWrites=true&w=majority`, { useNewUrlParser: true,
     useUnifiedTopology: true })
