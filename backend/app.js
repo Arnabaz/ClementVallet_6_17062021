@@ -9,6 +9,7 @@ const usernameDB = process.env.MONGO_DB_USER;
 const passwordDB = process.env.MONGO_DB_PASS;
 const nameDB = process.env.MONGO_DB_NAME;
 
+const sauceRoutes = require("./routes/sauce");
 const userRoutes = require("./routes/user");
 
 // Connexion avec MongoDB Atlas (via mongoose)
@@ -37,6 +38,7 @@ app.use(express.json());
 app.use("/images", express.static(path.join(__dirname, "images")));
 
 // Utilisation du middleware d'authentification sur la route Utilisateur
+app.use("/api/sauces", sauceRoutes);
 app.use("/api/auth", userRoutes);
 
 // Export de l'application
