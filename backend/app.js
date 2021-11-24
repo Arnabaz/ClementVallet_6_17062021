@@ -31,5 +31,8 @@ app.use((req, res, next) => {
 // Utilisation d'un middleware pour "body-parser" la requête
 app.use(express.json());
 
+// Utilisation du middleware d'authentification sur la route Utilisateur
+app.use("/api/auth", userRoutes);
+
 // Export de l'application
 module.exports = app;
