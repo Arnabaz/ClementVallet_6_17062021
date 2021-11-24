@@ -2,12 +2,14 @@
 const express = require("express"); // Import de Express.js
 const mongoose = require("mongoose"); // Import de mongoose
 const dotenv = require("dotenv").config(); // Import de Dotenv
+const path = require("path"); // Import de path
 
 // Déclaration des variables
 const usernameDB = process.env.MONGO_DB_USER;
 const passwordDB = process.env.MONGO_DB_PASS;
 const nameDB = process.env.MONGO_DB_NAME;
 
+const sauceRoutes = require("./routes/sauce");
 const userRoutes = require("./routes/user");
 
 // Connexion avec MongoDB Atlas (via mongoose)
@@ -33,7 +35,10 @@ app.use((req, res, next) => {
 // Utilisation d'un middleware pour "body-parser" la requête
 app.use(express.json());
 
+app.use("/images", express.static(path.join(__dirname, "images")));
+
 // Utilisation du middleware d'authentification sur la route Utilisateur
+app.use("/api/sauces", sauceRoutes);
 app.use("/api/auth", userRoutes);
 
 // Export de l'application
