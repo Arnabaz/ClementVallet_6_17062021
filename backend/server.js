@@ -1,6 +1,6 @@
 const http = require("http"); // Import du module http - Voir si on peut utiliser https (requiert un certificat SSL - Se renseigner)
 const app = require("./app"); // Import de app (liaison de l'application avec le serveur)
-
+const dotenv = require("dotenv").config(); // Import du module dotenv (gestion des variables d'environnement)
 
 // Configuration du port de connexion en fonction de l'environnnement
 // Définition de la fonction normalizePort pour renvoyer un port valide
