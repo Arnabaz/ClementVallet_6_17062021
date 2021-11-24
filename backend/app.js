@@ -27,5 +27,9 @@ app.use((req, res, next) => {
     next();
 });
 
+// MIDDLEWARE
+// Utilisation d'un middleware pour "body-parser" la requête
+app.use(express.json());
+
 // Export de l'application
 module.exports = app;
